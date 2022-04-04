@@ -1,0 +1,6 @@
+rootProject.name = "spaces-domain-service"
+
+include 'core'
+include 'application'
+include 'adapters:adapter-web'
+include 'adapters:adapter-persistence'

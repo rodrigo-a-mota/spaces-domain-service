@@ -1,0 +1,92 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.5.5"
+    }
+}
+
+plugins {
+    id "java"
+    id "io.spring.dependency-management" version "1.0.8.RELEASE"
+    id "org.springframework.boot" version "2.5.5"
+    id "org.sonarqube" version "3.0"
+}
+
+bootJar {
+    enabled = false
+    version("1.0.1-VERSION")
+}
+
+jar {
+    enabled = true
+}
+
+def repositoriesList = {
+    mavenLocal()
+    mavenCentral()
+}
+
+repositories(repositoriesList)
+
+allprojects {
+    sourceSets {
+        main.java.srcDirs += "src\\main\\java"
+        main.java.srcDirs += "src\\test\\java"
+    }
+}
+
+subprojects {
+
+    group = 'com.impactante.spaces.domain'
+    version = '0.0.1-SNAPSHOT'
+
+    repositories(repositoriesList)
+
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'java-library'
+
+    configurations {
+        developmentOnly
+        runtimeClasspath {
+            extendsFrom developmentOnly
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += "src\\main\\java"
+        main.java.srcDirs += "src\\test\\java"
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom("org.springframework.boot:spring-boot-dependencies:2.5.5")
+        }
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter'
+
+        //WEB
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+
+        // SWAGGER
+        implementation "io.springfox:springfox-boot-starter:3.0.0"
+        implementation "io.springfox:springfox-swagger-ui:3.0.0"
+
+        // DATABASE
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+        implementation 'org.postgresql:postgresql'
+        implementation 'org.flywaydb:flyway-core:8.0.2'
+
+        // UTILITIES
+        implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
+        annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
+    }
+}

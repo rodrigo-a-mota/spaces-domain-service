@@ -1,0 +1,9 @@
+apply plugin: 'application'
+
+mainClassName = 'com.impactante.spaces.domain.core.Boot'
+applicationName = 'core'
+
+dependencies {
+    implementation project(':adapters:adapter-web')
+    implementation project(':adapters:adapter-persistence')
+}

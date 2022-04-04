@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  domain_db:
+    image: postgres
+    container_name: "domain"
+    environment:
+      POSTGRES_PASSWORD: "abc123"
+      POSTGRES_USER: "domain"
+      POSTGRES_DB: "domain"
+
+    volumes:
+      - "./data/postgres:/var/lib/postgresql/data"
+    ports:
+      - "5432:5432"
