@@ -1,7 +1,7 @@
 ----------------------------------
 -- CRIA TABELA DOMÍNIO
 ----------------------------------
-CREATE TABLE IF NOT EXISTS spaces_domains.domain(
+CREATE TABLE IF NOT EXISTS spaces_domains.domains(
     domain_id uuid not null,
     account_id uuid not null,
     domain_name varchar(32) not null,
@@ -11,6 +11,6 @@ CREATE TABLE IF NOT EXISTS spaces_domains.domain(
     has_certificate varchar(32) not null,
 
     constraint domain_id_pk primary key (domain_id),
-    constraint account_id_fk foreign key (account_id) references domains.account (account_id) on delete cascade,
-    constraint site_id_fk foreign key (site_id) references domains.site (site_id) on delete cascade
+    constraint account_id_fk foreign key (account_id) references spaces_domains.accounts (account_id) on delete cascade,
+    constraint site_id_fk foreign key (site_id) references spaces_domains.sites (site_id) on delete cascade
 );
