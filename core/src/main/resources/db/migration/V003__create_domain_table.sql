@@ -1,7 +1,7 @@
 ----------------------------------
 -- CRIA TABELA DOMÍNIO
 ----------------------------------
-CREATE TABLE IF NOT EXISTS domains.domain(
+CREATE TABLE IF NOT EXISTS spaces_domains.domain(
     domain_id uuid not null,
     account_id uuid not null,
     domain_name varchar(32) not null,
