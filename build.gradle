@@ -86,6 +86,7 @@ subprojects {
         implementation 'org.flywaydb:flyway-core:8.0.2'
 
         // UTILITIES
+        implementation 'org.springframework.boot:spring-boot-starter-actuator:2.5.5'
         implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
         annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
 
