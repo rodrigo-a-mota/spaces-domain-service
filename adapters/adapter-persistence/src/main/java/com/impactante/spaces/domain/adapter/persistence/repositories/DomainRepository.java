@@ -34,4 +34,12 @@ public class DomainRepository implements DomainRepositoryInterface
                 .map(DomainEntity::toEntity)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<Domain> getAllDomainBySiteId(UUID siteId)
+    {
+        return repository.findBySiteId(siteId).stream()
+                .map(DomainEntity::toEntity)
+                .collect(Collectors.toList());
+    }
 }

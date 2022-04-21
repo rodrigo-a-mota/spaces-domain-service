@@ -9,4 +9,5 @@ public interface DomainRepositoryInterface
 {
     List<Domain> getAllDomain();
     List<Domain> getAllDomainByAccountId(UUID id);
+    List<Domain> getAllDomainBySiteId(UUID id);
 }

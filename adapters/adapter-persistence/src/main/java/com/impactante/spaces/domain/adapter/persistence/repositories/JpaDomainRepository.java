@@ -10,5 +10,6 @@ import java.util.UUID;
 @Repository
 public interface JpaDomainRepository extends JpaRepository<DomainEntity, UUID>
 {
-    List<DomainEntity> findByAccountId(UUID id);
+    List<DomainEntity> findByAccountId(UUID accountId);
+    List<DomainEntity> findBySiteId(UUID SiteId);
 }
