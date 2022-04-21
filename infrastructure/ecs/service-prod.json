@@ -1,0 +1,6 @@
+[
+  {
+    "name": "spaces-domain-service-prod",
+    "imageUri": "006375924004.dkr.ecr.us-east-1.amazonaws.com/spaces-domain-service:latest"
+  }
+]
