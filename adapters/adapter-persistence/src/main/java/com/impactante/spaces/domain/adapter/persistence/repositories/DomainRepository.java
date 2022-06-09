@@ -20,6 +20,12 @@ public class DomainRepository implements DomainRepositoryInterface
     }
 
     @Override
+    public Domain getDomain(String domainName)
+    {
+        return repository.findByDomainName(domainName).toEntity();
+    }
+
+    @Override
     public List<Domain> getAllDomain()
     {
         return repository.findAll().stream()

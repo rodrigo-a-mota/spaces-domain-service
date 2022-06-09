@@ -7,6 +7,7 @@ import java.util.UUID;
 
 public interface DomainRepositoryInterface
 {
+    Domain getDomain(String domainName);
     List<Domain> getAllDomain();
     List<Domain> getAllDomainByAccountId(UUID id);
     List<Domain> getAllDomainBySiteId(UUID id);

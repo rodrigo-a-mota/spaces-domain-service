@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
-@Table(name = "account", schema = "domains")
+@Table(name = "account")
 @Entity
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)

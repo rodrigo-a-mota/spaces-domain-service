@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Table(name = "domain", schema = "domains")
+@Table(name = "domains")
 @Entity
 @EqualsAndHashCode
 @Data
